@@ -38,7 +38,9 @@ exclude_data()
 generate_report()
 {
     "${LCOV_PATH}/genhtml" --output-directory . ${LCOV_INFO}
-    open index.html
+
+    REPORT_DIR="$SRCROOT/coverage-report"
+    mkdir -p $REPORT_DIR && cp -r . $REPORT_DIR
 }
 
 remove_old_report
